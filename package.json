@@ -1,5 +1,5 @@
 {
-  "name": "@evyweb/ioctopus",
+  "name": "@thaitype/ioctopus",
   "version": "1.2.0",
   "description": "A simple IoC container for JavaScript and TypeScript for classes and functions.",
   "main": "dist/index.js",
@@ -12,6 +12,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc --noEmit",
     "test": "vitest run",
+    "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "changeset": "npx changeset",
     "changeset:version": "npx changeset version",

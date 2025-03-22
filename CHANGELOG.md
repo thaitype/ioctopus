@@ -1,4 +1,4 @@
-# @evyweb/ioctopus
+# @thaitype/ioctopus
 
 ## 1.2.0
 

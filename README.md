@@ -18,7 +18,7 @@ It is using simple Typescript code, so it can be used in any project without any
 Works also in NextJS middleware and node+edge runtimes.
 
 ## Installation
-```npm i @evyweb/ioctopus```
+```npm i @thaitype/ioctopus```
 
 ## How to use
 
