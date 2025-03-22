@@ -5,7 +5,7 @@ interface Binding {
     scope: Scope;
 }
 
-export function createModule(): Module {
+export function createModule<Services extends Record<string, unknown> = {}>(): Module<Services> {
     const bindings = new Map<DependencyKey, Binding>();
 
     const resolveDependenciesArray = (dependencies: DependencyArray, resolve: ResolveFunction) =>

@@ -1,7 +1,7 @@
 import {Binding, Container, DependencyKey, Module, ModuleKey} from './types';
 import {createModule} from './module';
 
-export function createContainer(): Container {
+export function createContainer<Services extends Record<string, unknown> = {}>(): Container<Services> {
     const modules = new Map<ModuleKey, Module>();
     const singletonInstances = new Map<DependencyKey, unknown>();
     const scopedInstances = new Map<DependencyKey, Map<DependencyKey, unknown>>();

@@ -3,13 +3,14 @@ import {DI} from "./examples/DI";
 import {MyServiceInterface, SayHelloType} from "./examples/types";
 import {HigherOrderFunctionWithDependencyObject} from "./examples/HigherOrderFunctions";
 import {sayHelloWorld} from "./examples/SimpleFunctions";
+import type { Registry } from "./examples/DI";
 
 describe('Module', () => {
 
-    let container: Container;
+    let container: Container<Registry>;
 
     beforeEach(() => {
-        container = createContainer();
+        container = createContainer<Registry>();
     });
 
     describe('When a module is loaded', () => {
@@ -17,12 +18,12 @@ describe('Module', () => {
         ('When the module has dependencies', (moduleKey) => {
             it(`should return all dependencies of module with key: ${moduleKey.toString()}`, () => {
                 // Arrange
-                const myModule = createModule();
+                const myModule = createModule<Registry>();
                 myModule.bind('SIMPLE_FUNCTION').toFunction(sayHelloWorld);
                 container.load(moduleKey, myModule);
 
                 // Act
-                const sayHello = container.get<SayHelloType>('SIMPLE_FUNCTION');
+                const sayHello = container.get('SIMPLE_FUNCTION');
 
                 // Assert
                 expect(sayHello()).toBe('hello world');
@@ -32,8 +33,8 @@ describe('Module', () => {
         describe('When a dependency of the module is registered in another module', () => {
             it('should correctly resolve all dependencies', () => {
                 // Arrange
-                const module1 = createModule();
-                module1.bind(DI.DEP1).toValue('dependency1');
+                const module1 = createModule<Registry>();
+                module1.bind('DEP1').toValue(99);
 
                 const module2 = createModule();
                 module2.bind(DI.DEP2).toValue(42);
