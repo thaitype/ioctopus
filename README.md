@@ -35,7 +35,9 @@ Then you can bind the dependency to a value, a function, a class, a factory, a h
 a) create a service registry file (`ServiceRegistry.ts`) where you will define your symbols
 
 ```typescript
-export const serviceRegistry = new ServiceRegistry()
+import { createServiceRegistry } from '@thaitype/ioctopus';
+
+export const serviceRegistry = createServiceRegistry()
     .define('DEP1').mapTo<string>()
     .define('DEP2').mapTo<number>()
     .define('LOGGER').mapTo<LoggerInterface>()
