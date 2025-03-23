@@ -1,3 +1,8 @@
+
+export function createServiceRegistry<KeyMap extends Record<string, unknown> = {}>() {
+    return new ServiceRegistry<KeyMap>();
+}
+
 /**
 
  Service Registry is a design pattern that allows you to define services in a single place. 

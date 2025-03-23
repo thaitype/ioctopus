@@ -1,8 +1,8 @@
-import { ServiceRegistry} from "../../src";
+import { createServiceRegistry} from "../../src";
 import { ClassA, ClassB } from "./Circular";
 import { CurriedFunctionWithDependencies, CurriedFunctionWithoutDependencies, LoggerInterface, MyServiceClassInterface, MyServiceInterface, MyUseCaseInterface, SayHelloType, ServiceWithoutDependencyInterface } from "./types";
 
-export const serviceRegistry = new ServiceRegistry()
+export const serviceRegistry = createServiceRegistry()
     .define('DEP1').mapTo<string>()
     .define('DEP2').mapTo<number>()
     .define('LOGGER').mapTo<LoggerInterface>()
